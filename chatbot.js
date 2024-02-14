@@ -2,7 +2,7 @@ const chatux = new ChatUx();
 const initParam = {
   renderMode: "auto",
   api: {
-    endpoint: "Google Apps Script Endpoint",
+    endpoint: "https://script.google.com/macros/s/AKfycbwf4V2rz2NPjzZS9-NduCBtyA5YauK32xIRxMLtpm6x2KLb0heCNx5OEdZ77gLkO-Z74A/exec",
     method: "GET",
     dataType: "jsonp",
     errorResponse: {
