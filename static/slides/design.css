@@ -1,0 +1,332 @@
+/* @theme ken-design */
+ 
+@import 'default';
+ 
+
+
+section {
+    font-family: "Arial", "Hiragino Kaku Gothic ProN";
+    font-size: 32px;
+    padding: 40px;
+}
+
+section.title h1 {
+    color: rgba(30,30,90,1);
+    font-family: "Arial", "Hiragino Kaku Gothic ProN";
+    font-size: 60px;
+    text-align: center;
+}
+
+section.title {
+    color: rgba(30,30,90,1);
+    font-family: "Arial", "Hiragino Kaku Gothic ProN";
+    font-size: 36px;
+    text-align: center;
+    padding: 40px;
+}
+
+section.slides h1 {
+    background: linear-gradient( to left,  rgb(15, 22, 127) 25%, rgb(8, 26, 225) 75% );
+    -webkit-background-clip: text;
+    background-clip: text; /* 標準プロパティを追加 */
+    -webkit-text-fill-color: transparent; /* Safari対応 */
+    color: transparent;
+    font-family: "Arial", "Hiragino Kaku Gothic ProN";
+    font-size: 42px;
+    position: absolute;
+    left: 50px; top: 50px;
+}
+
+section.slides h2 {
+    font-size: 32px;
+    color: rgb(2, 33, 43);
+    left: 50px; top: 50px;
+}
+section.slides h3 {
+    font-size: 32px;
+    color: darkblue;
+    left: 50px; top: 50px;
+}
+strong,b {
+  color: darkblue;
+}
+
+:root {
+  --fw: 1;
+}
+/* ----- レイアウト ----- */
+.flex{
+  display: flex;
+  gap: 1em;
+}
+.sa {
+  justify-content: space-around;
+  /* border: 8px dashed rgb(15, 166, 226);
+  background-color: rgb(222, 244, 255); */
+}
+.sb {
+  justify-content: space-between;
+  /* border: 8px dashed rgb(21, 17, 255);
+  background-color: rgb(222, 244, 255); */
+}
+.sa div,.sb div{
+  margin: 0.1em;
+  /* border: 8px dashed rgb(80, 177, 109);
+  background-color: rgb(227, 250, 237); */
+}
+.fw div{
+  flex: var(--fw);
+  /* background-color: rgb(244, 238, 255);
+  border: 8px dashed rgb(93, 0, 255); */
+}
+
+/* もんたメソッド用スタイル - シンプル版 */
+.monta-reveal {
+  position: relative;
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 3px;
+}
+
+/* 隠された文字 */
+.monta-reveal .hidden {
+  visibility: hidden;
+  opacity: 0;
+  position: relative;
+}
+
+/* カバー（付箋紙風） */
+.monta-reveal::before {
+  content: "📄";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #f4f4f4 0%, #e8e8e8 100%);
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  z-index: 1;
+  font-size: 0.8em;
+  transition: all 0.3s ease;
+}
+
+.monta-reveal:hover::before {
+  background: linear-gradient(135deg, #e0e0e0 0%, #d4d4d4 100%);
+  transform: scale(1.05);
+}
+
+/* ホバー時に文字を表示 */
+.monta-reveal:hover .hidden {
+  visibility: visible;
+  opacity: 1;
+}
+
+.monta-reveal:hover::before {
+  opacity: 0;
+  transform: translateX(100%) rotate(15deg) scale(0.8);
+}
+
+/* 数値のスタイル */
+.number {
+  font-weight: bold;
+  color: #a71c0c;
+  font-size: 1.3em;
+}
+
+.big-text {
+  font-size: 1.8em;
+  line-height: 1.6;
+}
+
+.center {
+  text-align: center;
+}
+
+/* 段階的表示のため、遅延ホバー効果 */
+.monta-reveal.delay::before {
+  transition-delay: 0.1s;
+}
+
+.monta-reveal.delay .hidden {
+  transition-delay: 0.1s;
+}
+
+/* ボックススタイル */
+.box {
+  border: 2px solid #4ac;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background: linear-gradient(135deg, #d0d8ff 0%, #e6f3ff 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: #1a237e;
+  text-align: center;
+  animation: slideInUp 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #c4d0ff 0%, #daf0ff 100%);
+}
+
+/* アニメーション定義 */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(68, 170, 204, 0.3);
+  }
+}
+
+/* 追加のアニメーションクラス */
+.fade-in {
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+.pulse-effect {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* タイトルアニメーション */
+section.title h1 {
+  color: rgba(30,30,90,1);
+  font-family: "Arial", "Hiragino Kaku Gothic ProN";
+  font-size: 60px;
+  text-align: center;
+  animation: fadeInScale 1.2s ease-out;
+}
+
+section.title {
+  color: rgba(30,30,90,1);
+  font-family: "Arial", "Hiragino Kaku Gothic ProN";
+  font-size: 36px;
+  text-align: center;
+  padding: 40px;
+  animation: slideInUp 1s ease-out 0.3s both;
+}
+
+/* スライドタイトルアニメーション */
+section.slides h1 {
+  background: linear-gradient( to right,  #0b4f6c 25%, rgb(97, 109, 218) 75% );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-family: "Arial", "Hiragino Kaku Gothic ProN";
+  font-size: 42px;
+  position: absolute;
+  left: 50px; top: 50px;
+  animation: slideInUp 0.8s ease-out;
+}
+
+section.slides h2 {
+  font-size: 32px;
+  color: rgb(5, 46, 60);
+  position: absolute;
+  left: 50px; top: 90px;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+/* リストアイテムのアニメーション */
+li {
+  animation: slideInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+li:nth-child(1) { animation-delay: 0.1s; }
+li:nth-child(2) { animation-delay: 0.2s; }
+li:nth-child(3) { animation-delay: 0.3s; }
+li:nth-child(4) { animation-delay: 0.4s; }
+li:nth-child(5) { animation-delay: 0.5s; }
+
+/* ホバーエフェクト強化 */
+section {
+  font-family: "Arial", "Hiragino Kaku Gothic ProN";
+  font-size: 32px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+/* 特別なエフェクトクラス */
+.highlight-box {
+  border: 2px solid #ff6b35;
+  background: linear-gradient(135deg, #ffe6dc 0%, #fff0eb 100%);
+  animation: bounceIn 0.8s ease-out;
+}
+
+.success-box {
+  border: 2px solid #28a745;
+  background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.warning-box {
+  border: 2px solid #ffc107;
+  background: linear-gradient(135deg, #fff3cd 0%, #fefcf3 100%);
+  animation: fadeInScale 0.8s ease-out;
+}
+ blockquote > blockquote > blockquote {
+    font-size: 50%;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-top: 0.1em dashed #555;
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+  }
